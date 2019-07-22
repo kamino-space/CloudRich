@@ -1,0 +1,14 @@
+.header-title{
+    float: left;
+    font-size: 34px;
+    color:#fff;
+}
+
+.header-user{
+    float: right;
+}
+
+.login-box{
+    width: 800px;
+    margin: 64px auto;
+}
