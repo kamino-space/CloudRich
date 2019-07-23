@@ -7,7 +7,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" for="email">邮箱</label>
             <div class="layui-input-block">
-                <input type="email" name="email" required lay-verify="required" class="layui-input">
+                <input type="email" id="email" name="email"  value="{{ old('email') }}" required lay-verify="required" class="layui-input" autofocus>
                 @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -18,7 +18,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" for="password">密码</label>
             <div class="layui-input-block">
-                <input type="password" name="password" required lay-verify="required" class="layui-input">
+                <input type="password" id="password" name="password" required lay-verify="required" class="layui-input">
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

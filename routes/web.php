@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'PropertyController@AdminPanel');
+Route::get('/admin/detial', 'PropertyController@AdminPanel');
+Route::get('/admin/detial/{page}', 'PropertyController@AdminPanel');
+Route::get('/', 'PropertyController@TotleProperty');

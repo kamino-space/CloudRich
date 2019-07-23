@@ -1,14 +1,19 @@
-.header-title{
+.header-title {
     float: left;
     font-size: 34px;
-    color:#fff;
+    color: #fff;
 }
 
-.header-user{
+.header-user {
     float: right;
 }
 
-.login-box{
+.login-box {
     width: 800px;
     margin: 64px auto;
+}
+
+.admin-box {
+    width: 1080px;
+    margin: 24px auto;
 }
