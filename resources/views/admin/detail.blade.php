@@ -31,8 +31,26 @@
             </tbody>
         </table>
     </div>
+    <div class="pages-ctrl">
+        <div id="pages"></div>
+    </div>
 </div>
 
 <script>
+    layui.use('laypage', function() {
+        var laypage = layui.laypage;
+
+        laypage.render({
+            elem: 'pages',
+            count: '{{$listCount}}',
+            limit: '{{$listCount / $pageCount}}',
+            curr: '{{$pageCurrent}}',
+            jump: function(obj, first) {
+                if (!first) {
+                    window.location.href = "{{ url('/admin/detial') }}/" + obj.curr
+                }
+            }
+        });
+    });
 </script>
 @endsection

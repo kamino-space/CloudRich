@@ -15,6 +15,6 @@
 Auth::routes();
 
 Route::get('/admin', 'PropertyController@AdminPanel');
-Route::get('/admin/detial', 'PropertyController@AdminPanel');
-Route::get('/admin/detial/{page}', 'PropertyController@AdminPanel');
+Route::get('/admin/detial', 'PropertyController@PropretyList');
+Route::get('/admin/detial/{page}', 'PropertyController@PropretyList');
 Route::get('/', 'PropertyController@TotleProperty');

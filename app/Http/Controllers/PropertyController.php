@@ -9,9 +9,14 @@ use Auth;
 class PropertyController extends Controller
 {
     private $listShow;
+    private $listCount;
     private $pageCount;
     private $pageCurrent;
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function TotleProperty()
     {
         $totle = 0;
@@ -21,10 +26,10 @@ class PropertyController extends Controller
         return $totle;
     }
 
-    private function PropretyListAll()
+    private function GetAll($orderby = 'id', $desc = true)
     {
         $list = [];
-        foreach (Property::orderBy('id', 'DESC')->get() as $item) {
+        foreach (Property::orderBy($orderby, $desc ? 'DESC' : 'ASC')->get() as $item) {
             $list[] = [
                 'id' => $item['id'],
                 'sign' => $item['sign'] ? '+' : '-',
@@ -33,6 +38,13 @@ class PropertyController extends Controller
                 'time' => date('Y-m-d H:i:s', strtotime($item['created_at']))
             ];
         }
+        $this->listCount = count($list);
+        return $list;
+    }
+
+    private function PropretyListAll()
+    {
+        $list = $this->GetAll();
         $this->listShow = $list;
         $this->pageCount = 1;
         $this->pageCurrent = 1;
@@ -41,18 +53,40 @@ class PropertyController extends Controller
 
     private function PropretyListByPage($page)
     {
+        $all = $this->GetAll();
         $list = [];
-        $all = $this->PropretyListAll();
+        $pages  = $this->listCount / 10;
+        for ($i = 0; $i < $pages; $i++) {
+            $list[$i] = array_slice($all, 10 * $i, 10);
+        }
+        $this->listShow = $list[$page - 1];
+        $this->pageCount = $pages;
+        $this->pageCurrent = $page;
         return $list;
     }
 
-    public function AdminPanel(Request $request, $page = 1)
+    public function PropretyList(Request $request, $page = 1)
     {
         $page == 'all' ? $this->PropretyListAll() : $this->PropretyListByPage($page);
         return view('admin.detail', [
             'listShow' => $this->listShow,
+            'listCount' => $this->listCount,
             'pageCount' => $this->pageCount,
             'pageCurrent' => $this->pageCurrent
         ]);
+    }
+
+    public function PropertyAdd(Request $request)
+    { }
+
+    public function PropertyDelete(Request $request)
+    { }
+
+    public function PropertyEdit(Request $request)
+    { }
+
+    public function AdminPanel()
+    {
+        return view('admin.overview');
     }
 }

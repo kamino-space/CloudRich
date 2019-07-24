@@ -7,10 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ URL::asset('layui/css/layui.css') }}" media="all" />
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/admin.css') }}" />
     <script src="{{ URL::asset('js/jquery.min.js' )}}"></script>
     <script src="{{ URL::asset('layui/layui.js') }}"></script>
-    <script src="{{ URL::asset('js/script.js') }}"></script>
+    <script src="{{ URL::asset('js/admin.js') }}"></script>
 </head>
 
 <body>
