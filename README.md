@@ -22,6 +22,7 @@
 git clone https://github.com/kamino-space/CloudRich.git
 cd CloudRich
 cp .env.example .env
+php artisan key:generate
 vi .env
 php artisan migrate
 ```

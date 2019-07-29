@@ -16,6 +16,6 @@ Auth::routes();
 
 Route::get('/admin', 'PropertyController@AdminPanel');
 Route::get('/admin/detial/{page?}', 'PropertyController@PropretyList');
-Route::get('/', 'PropertyController@IndexShow');
+Route::get('/', 'ShowController@IndexShow');
 
 Route::post('/admin/{all}', 'PropertyController@PropertyCtrl')->where('all', '.*');

@@ -148,11 +148,4 @@ class PropertyController extends Controller
             'expend' => $request->getRequestUri()
         ]);
     }
-
-    public function IndexShow()
-    {
-        return view('index', [
-            'property' => $this->TotalProperty()
-        ]);
-    }
 }
