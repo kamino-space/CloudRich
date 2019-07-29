@@ -19,8 +19,9 @@ class PropertiesSeeder extends Seeder
             Property::create([
                 'user' => 1,
                 'sign' => $faker->boolean(),
-                'amount' => random_int(1,99999),
-                'mark' => $faker->title()
+                'amount' => random_int(1, 99999),
+                'mark' => $faker->title(),
+                'time' => $faker->dateTime()
             ]);
         }
     }

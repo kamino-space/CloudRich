@@ -28,6 +28,8 @@
                 <li class="layui-nav-item"><a href="{{ route('register') }}">注册</a></li>
                 @endif
                 @else
+                <li class="layui-nav-item"><a href="{{ url('/admin') }}" layui-this>概览</a></li>
+                <li class="layui-nav-item"><a href="{{ url('/admin/detial') }}">详细列表</a></li>
                 <li class="layui-nav-item">{{ Auth::user()->name }}</li>
                 <li class="layui-nav-item"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">退出</a></li>
                 <li class="layui-nav-item"><a target="_blank" href="{{ url('/') }}">查看网站</a></li>
@@ -45,7 +47,7 @@
 </body>
 <script>
     layui.use('element', function() {
-        var element = layui.element;
+        let element = layui.element;
     });
 </script>
 

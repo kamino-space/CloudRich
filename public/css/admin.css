@@ -1,7 +1,11 @@
 .header-title {
     float: left;
-    font-size: 34px;
+}
+
+.header-title a{
+    font-size: 24px;
     color: #fff;
+    line-height: 60px;
 }
 
 .header-user {
@@ -20,4 +24,8 @@
 
 .pages-ctrl {
     text-align: center;
+}
+
+.editstyle{
+    width:400px;
 }

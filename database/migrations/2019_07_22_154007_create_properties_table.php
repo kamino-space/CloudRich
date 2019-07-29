@@ -17,8 +17,9 @@ class CreatePropertiesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user');
             $table->boolean('sign');
-            $table->float('amount');
+            $table->double('amount');
             $table->text('mark');
+            $table->dateTime('time');
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ class Property extends Model
         'user',
         'sign',
         'amount',
-        'mark'
+        'mark',
+        'time'
     ];
 }
