@@ -74,9 +74,6 @@ class PropertyController extends Controller
     private function PropretyListByPage($page)
     {
         $all = $this->GetAll();
-        if(count($all) == 0){
-            return [];
-        }
         $list = [];
         $pages  = $this->listCount / 10;
         for ($i = 0; $i < $pages; $i++) {
