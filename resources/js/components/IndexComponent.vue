@@ -2,7 +2,7 @@
   <div class="container">
     <p class="count">
       <span>￥</span>
-      <ICountUp :delay="delay" :endVal="endVal" :options="options" @ready="onReady" />
+      <ICountUp :delay="delay" :endVal="endVal" :options="options" />
     </p>
   </div>
 </template>
@@ -27,12 +27,6 @@ export default {
         suffix: ""
       }
     };
-  },
-  methods: {
-    onReady: function(instance, CountUp) {
-      const that = this;
-      instance.update(that.endVal + 100);
-    }
   }
 };
 </script>
