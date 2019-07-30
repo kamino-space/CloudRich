@@ -24,11 +24,10 @@ cd CloudRich
 cp .env.example .env
 php artisan key:generate
 vi .env
-php artisan migrate
+php artisan migrate --seed
 ```
 ### 后台
-yourdomain/admin  
-~~暂时不知道怎么创建用户~~  
+yourdomain/admin
 
 ## 协议
 MIT License

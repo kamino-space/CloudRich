@@ -12,7 +12,23 @@ class PropertiesSeeder extends Seeder
      */
     public function run()
     {
+        $faker = \Faker\Factory::create();
         Property::truncate();
+        Property::create([
+            'user' => 1,
+            'sign' => 1,
+            'amount' => random_int(1, 99999),
+            'mark' => '测试',
+            'time' => $faker->dateTime()
+        ]);
+        Property::create([
+            'user' => 1,
+            'sign' => 0,
+            'amount' => random_int(1, 99999),
+            'mark' =>'测试',
+            'time' => $faker->dateTime()
+        ]);
+        /*
         $faker = \Faker\Factory::create();
 
         for ($i = 0; $i < 100; $i++) {
@@ -23,6 +39,6 @@ class PropertiesSeeder extends Seeder
                 'mark' => $faker->title(),
                 'time' => $faker->dateTime()
             ]);
-        }
+        }*/
     }
 }

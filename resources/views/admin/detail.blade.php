@@ -19,7 +19,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 @foreach($listShow as $li)
                 <tr style="background-color:{{$li['sign']=='+'?'#99ec99':'#f9acac'}}">
                     <td>{{$li["id"]}}</td>
@@ -37,7 +36,6 @@
                     </td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>

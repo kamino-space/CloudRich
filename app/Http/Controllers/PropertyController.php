@@ -9,10 +9,10 @@ use Mockery\CountValidator\Exception;
 
 class PropertyController extends Controller
 {
-    private $listShow;
-    private $listCount;
-    private $pageCount;
-    private $pageCurrent;
+    private $listShow = [];
+    private $listCount = 0;
+    private $pageCount = 1;
+    private $pageCurrent = 0;
     private $totalPro = 0;
     private $totalInc = 0;
     private $totalExp = 0;
@@ -74,6 +74,15 @@ class PropertyController extends Controller
     private function PropretyListByPage($page)
     {
         $all = $this->GetAll();
+        if (count($all) == 0) {
+            return view('admin.detail', [
+                'listShow' => $this->listShow,
+                'listCount' => $this->listCount,
+                'pageCount' => $this->pageCount,
+                'pageCurrent' => $this->pageCurrent,
+                'Message' => null
+            ]);
+        }
         $list = [];
         $pages  = $this->listCount / 10;
         for ($i = 0; $i < $pages; $i++) {
