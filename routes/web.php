@@ -12,7 +12,7 @@
 */
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/admin', 'PropertyController@AdminPanel');
 Route::get('/admin/detial/{page?}', 'PropertyController@PropretyList');
