@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Property;
 use Auth;
+use App\Exports\PropertiesExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Mockery\CountValidator\Exception;
 
 class PropertyController extends Controller
@@ -156,5 +158,10 @@ class PropertyController extends Controller
             'income' => $this->TotalIncome(),
             'expend' => $request->getRequestUri()
         ]);
+    }
+
+    public function ExportToExcel()
+    {
+        return Excel::download(new PropertiesExport, 'export-' . time() . '.xlsx');
     }
 }

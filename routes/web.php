@@ -14,8 +14,9 @@
 
 Auth::routes(['register' => false]);
 
-Route::get('/admin', 'PropertyController@AdminPanel');
-Route::get('/admin/detial/{page?}', 'PropertyController@PropretyList');
 Route::get('/', 'ShowController@IndexShow');
 
+Route::get('/admin', 'PropertyController@AdminPanel');
+Route::get('/admin/detial/{page?}', 'PropertyController@PropretyList');
+Route::get('/admin/export', 'PropertyController@ExportToExcel');
 Route::post('/admin/{all}', 'PropertyController@PropertyCtrl')->where('all', '.*');
